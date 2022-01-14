@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ReviewList from "./components/ReviewList";
+import Categories from "./components/Categories";
+import Review from "./components/Review";
+import NavBar from "./components/Navbar";
+import { UserContext } from "./contexts/user";
+import { CssBaseline } from "@mui/material";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [user, setUser] = useState({ username: "jessjelly" });
+	return (
+		<UserContext.Provider value={{ user }}>
+			<BrowserRouter>
+				<CssBaseline />
+				<div className="App">
+					<NavBar setUser={setUser} />
+					<Routes>
+						<Route path="/" element={<ReviewList />} />
+						<Route path="/categories/:category_name" element={<ReviewList />} />
+						<Route path="/categories" element={<Categories />} />
+						<Route path="/review/:review_id" element={<Review />} />
+					</Routes>
+				</div>
+			</BrowserRouter>
+		</UserContext.Provider>
+	);
 }
 
 export default App;

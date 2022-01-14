@@ -1,38 +1,160 @@
+:root {
+	--br-colour: rgb(82, 82, 82);
+	--dark-colour: #3b3b3b;
+	--light-colour: #858585;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Roboto&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+
 .App {
-  text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+	text-align: center;
+	padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.label {
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.label-red {
+	color: red;
 }
 
-.App-link {
-  color: #61dafb;
+.navlink {
+	text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+	min-height: 2rem;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--light-colour);
+}
+
+.topnav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	padding: 1rem;
+}
+
+.bottomnav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding-bottom: 1rem;
+}
+
+.sortbar {
+	min-height: 2rem;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	align-content: center;
+	background-color: var(--light-colour);
+	padding-bottom: 1rem;
+	padding-right: 1rem;
+	gap: 2rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.searchbar {
+	display: flex;
+}
+
+.review_info {
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	background-color: rgb(233, 233, 233);
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	font-size: 0.8rem;
+	padding: 1rem;
+}
+
+.card-product {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1rem;
+}
+
+.card-product-info {
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.card-product-pic {
+	width: 150px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 1rem;
+}
+
+.bar-even {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	justify-content: space-between;
+}
+
+.buttonbar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	justify-content: flex-end;
+}
+
+.pagination {
+	margin: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.review-card {
+	margin-top: 1rem;
+	background-color: rgb(240, 240, 240);
+}
+
+.post-comment {
+	display: flex;
+	margin: 1rem;
+	justify-content: space-between;
+}
+
+.comment-card {
+	background-color: lightgray;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	margin-top: 1rem;
 }
