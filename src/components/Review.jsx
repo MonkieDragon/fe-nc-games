@@ -4,7 +4,9 @@ import { getReviewByID, capitalise } from "../utils/api";
 import VoteReviewBar from "./VoteReviewBar";
 import { UserContext } from "../contexts/user";
 import Comments from "./Comments";
+import { Container } from "@mui/material";
 import dayjs from "dayjs";
+
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
@@ -33,7 +35,7 @@ const Review = () => {
 	};
 
 	return (
-		<div className="review">
+		<Container className="review page">
 			{isLoading ? (
 				<p>Loading review...</p>
 			) : (
@@ -67,7 +69,7 @@ const Review = () => {
 				totalComments={review.comment_count}
 				incComments={incComments}
 			/>
-		</div>
+		</Container>
 	);
 };
 

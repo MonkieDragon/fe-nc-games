@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReviews } from "../utils/api";
+import { capitalise, getReviews } from "../utils/api";
 import Pag from "./Pag";
 import ReviewCard from "./ReviewCard";
 import Sortbar from "./Sortbar";
@@ -36,14 +36,14 @@ const ReviewList = () => {
 	console.log("totalReviews in reviewList: ", totalReviews);
 
 	return (
-		<section>
+		<section className="review-list page">
 			<Sortbar
 				order={localOrder}
 				setOrder={setLocalOrder}
 				sort_by={localSort_by}
 				setSort_by={setLocalSort_by}
+				category={category_name}
 			/>
-			<h1> {category_name ? `${category_name} Reviews` : "All Reviews"}</h1>
 			<ul>
 				{reviews.map((review) => {
 					return (

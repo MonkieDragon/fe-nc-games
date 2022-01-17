@@ -71,5 +71,9 @@ export const getCategories = () => {
 };
 
 export const capitalise = (word) => {
-	return word[0].toUpperCase() + word.slice(1).toLowerCase();
+	const words = word.split(" ");
+	const capWords = words.map(
+		(word) => word[0].toUpperCase() + word.slice(1).toLowerCase()
+	);
+	return capWords.join(" ");
 };

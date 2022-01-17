@@ -30,7 +30,7 @@ const PostComment = ({ review_id, setPage, setComments, incComments }) => {
 	};
 
 	return (
-		<form className="post-comment" onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className="post-comment">
 			<TextField
 				id="outlined-basic"
 				label="Post Comment"
@@ -40,8 +40,8 @@ const PostComment = ({ review_id, setPage, setComments, incComments }) => {
 				multiline
 				maxRows={5}
 				size="small"
+				fullWidth
 			/>
-
 			<Button onClick={handleSubmit} variant="contained">
 				Post
 			</Button>

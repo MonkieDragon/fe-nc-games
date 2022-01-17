@@ -1,7 +1,7 @@
 :root {
 	--br-colour: rgb(82, 82, 82);
 	--dark-colour: #3b3b3b;
-	--light-colour: #858585;
+	--light-colour: #f0f0f0;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Roboto&display=swap");
@@ -14,6 +14,11 @@
 }
 
 .App {
+}
+
+.page {
+	max-width: 1200px;
+	margin: auto;
 }
 
 h1 {
@@ -32,13 +37,6 @@ h1 {
 	text-decoration: none;
 }
 
-.navbar {
-	min-height: 2rem;
-	display: flex;
-	flex-direction: column;
-	background-color: var(--light-colour);
-}
-
 .topnav {
 	display: flex;
 	justify-content: space-between;
@@ -47,24 +45,35 @@ h1 {
 	padding: 1rem;
 }
 
+.midnav {
+	display: flex;
+	gap: 0.5rem;
+}
+
 .bottomnav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+}
+
+.sort-wrap {
+	margin: auto;
+	width: 90%;
+}
+.sortbar {
+	padding: 1rem 1rem;
+}
+.sortbar-top {
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 1rem;
 }
 
-.sortbar {
-	min-height: 2rem;
+.sortbar-top > div {
 	display: flex;
-	justify-content: right;
 	align-items: center;
-	align-content: center;
-	background-color: var(--light-colour);
-	padding-bottom: 1rem;
-	padding-right: 1rem;
-	gap: 2rem;
+	gap: 1rem;
 }
 
 a {
@@ -79,19 +88,22 @@ li {
 	display: flex;
 }
 
+.review-list {
+}
+
 .review_info {
 	flex-direction: column;
 	gap: 1rem;
 	padding: 1rem;
-	background-color: rgb(233, 233, 233);
+	background-color: var(--light-colour);
 }
 
 .card {
 	display: flex;
 	align-items: center;
 	margin: auto;
-	font-size: 0.8rem;
 	padding: 1rem;
+	border-radius: 10px;
 }
 
 .card-product {
@@ -110,10 +122,11 @@ li {
 }
 
 .card-product-pic {
-	width: 150px;
 	height: 100px;
 	object-fit: cover;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .bar-even {
@@ -140,21 +153,98 @@ li {
 }
 
 .review-card {
-	margin-top: 1rem;
-	background-color: rgb(240, 240, 240);
+	padding: 2.5rem 1rem;
+	border-bottom: 1px solid black;
+}
+
+.review-card-inner {
+	display: flex;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	align-items: center;
+	align-content: center;
+	gap: 1rem;
+	max-height: 150px;
+}
+
+.snippet {
+	font-style: italic;
+	text-align: center;
+}
+
+.snip_box {
+	margin: 1rem;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.review-card-outer {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.review-card-outer > div {
+	display: flex;
+	gap: 0.3rem;
+	overflow: hidden;
+	align-items: center;
+}
+
+.review-card-outer-title {
+	white-space: nowrap;
+}
+
+.no_shrink {
+	flex-shrink: 0;
 }
 
 .post-comment {
+	margin-bottom: 2rem;
+	margin-top: 1rem;
 	display: flex;
-	margin: 1rem;
 	justify-content: space-between;
+	gap: 1rem;
 }
 
 .comment-card {
-	background-color: lightgray;
+	background-color: var(--light-colour);
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	padding: 1rem;
 	margin-top: 1rem;
+}
+
+.login_box {
+	background-color: white;
+	display: flex;
+	gap: 1rem;
+	width: 95%;
+	padding: 0.8rem;
+	margin: auto;
+	margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+	.sortbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.sortbar-top {
+		width: 50%;
+		padding-bottom: 0;
+		justify-content: flex-start;
+		gap: 2rem;
+	}
+
+	.cat_select {
+		width: 50%;
+	}
 }

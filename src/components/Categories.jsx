@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCategories } from "../utils/api";
+import { capitalise, getCategories } from "../utils/api";
 
 export default function Categories() {
 	const [categories, setCategroies] = useState([]);
@@ -16,10 +16,12 @@ export default function Categories() {
 			<h1>Categories</h1>
 			<ul>
 				{categories.map((category) => {
+					const title = capitalise(category.slug.replaceAll("-", " "));
+
 					return (
 						<li key={category.slug}>
 							<Link to={`/categories/${category.slug}`}>
-								<h4>CATEGORY TITLE: {category.slug}</h4>
+								<h4>{title}</h4>
 							</Link>
 							<p>{category.description}</p>
 						</li>
