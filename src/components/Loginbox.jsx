@@ -1,10 +1,8 @@
 import { Button, TextField } from "@mui/material";
-import React, { useContext, useState } from "react";
-import { UserContext } from "../contexts/user";
+import React, { useState } from "react";
 import { getUserbyUsername } from "../utils/api";
 
 export default function Loginbox({ setUser, setShowLogin }) {
-	const { user } = useContext(UserContext);
 	const [newUser, setNewUser] = useState("");
 	const [invalidUser, setInvalidUser] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);

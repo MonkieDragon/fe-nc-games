@@ -24,7 +24,7 @@ const Comments = ({ review_id, totalComments, incComments }) => {
 			.catch(() => {
 				//error
 			});
-	}, [page]);
+	}, [page, review_id]);
 
 	return (
 		<>

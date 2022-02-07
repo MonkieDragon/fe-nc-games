@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { capitalise, getReviews } from "../utils/api";
+import { getReviews } from "../utils/api";
 import Pag from "./Pag";
 import ReviewCard from "./ReviewCard";
 import Sortbar from "./Sortbar";
@@ -37,28 +37,34 @@ const ReviewList = () => {
 
 	return (
 		<section className="review-list page">
-			<Sortbar
-				order={localOrder}
-				setOrder={setLocalOrder}
-				sort_by={localSort_by}
-				setSort_by={setLocalSort_by}
-				category={category_name}
-			/>
-			<ul>
-				{reviews.map((review) => {
-					return (
-						<li key={review.review_id}>
-							<ReviewCard review={review} />
-						</li>
-					);
-				})}
-			</ul>
-			<Pag
-				page={page}
-				setPage={setPage}
-				pageLength={pageLength}
-				totalCount={totalReviews}
-			/>
+			{isError ? (
+				<h2>Unable to find category</h2>
+			) : (
+				<>
+					<Sortbar
+						order={localOrder}
+						setOrder={setLocalOrder}
+						sort_by={localSort_by}
+						setSort_by={setLocalSort_by}
+						category={category_name}
+					/>
+					<ul>
+						{reviews.map((review) => {
+							return (
+								<li key={review.review_id}>
+									<ReviewCard review={review} />
+								</li>
+							);
+						})}
+					</ul>
+					<Pag
+						page={page}
+						setPage={setPage}
+						pageLength={pageLength}
+						totalCount={totalReviews}
+					/>{" "}
+				</>
+			)}
 		</section>
 	);
 };

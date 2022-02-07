@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewByID, capitalise } from "../utils/api";
 import VoteReviewBar from "./VoteReviewBar";
-import { UserContext } from "../contexts/user";
 import Comments from "./Comments";
 import { Container } from "@mui/material";
 import dayjs from "dayjs";
@@ -11,22 +10,22 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
 const Review = () => {
-	const { user } = useContext(UserContext);
 	const { review_id } = useParams();
-	const [isError, setIsError] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [review, setReview] = useState({});
+	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
+		setIsError(false);
 		getReviewByID(review_id)
 			.then((reviewFromAPI) => {
 				setReview(reviewFromAPI);
 				setIsLoading(false);
 			})
 			.catch(() => {
-				//error
+				setIsError(true);
 			});
-	}, []);
+	}, [review_id]);
 
 	const incComments = (incValue) => {
 		setReview((currReview) => {
@@ -34,7 +33,9 @@ const Review = () => {
 		});
 	};
 
-	return (
+	return isError ? (
+		<h2>Unable to find category</h2>
+	) : (
 		<Container className="review page">
 			{isLoading ? (
 				<p>Loading review...</p>

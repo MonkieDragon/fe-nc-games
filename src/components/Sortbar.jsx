@@ -1,12 +1,4 @@
-import {
-	AppBar,
-	Button,
-	FormControl,
-	InputLabel,
-	MenuItem,
-	Select,
-	Toolbar,
-} from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import SortIcon from "@mui/icons-material/Sort";
 import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
