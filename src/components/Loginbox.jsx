@@ -45,7 +45,9 @@ export default function Loginbox({ setUser, setShowLogin }) {
 				size="small"
 				fullWidth
 			/>
-			<Button variant="contained">Submit</Button>
+			<Button onClick={handleSubmit} variant="contained">
+				Submit
+			</Button>
 		</form>
 	);
 }
